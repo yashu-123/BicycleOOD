@@ -1,15 +1,27 @@
 package learnOOD;
 
-class Gear {
-	private int chainring;
-	private int cog;
-	private Wheel wheel;
+public class Gear {
+	private int chainring = 40;
+	private int cog = 18;
+	private Wheel wheel = null;
 
-	public Gear(int chainring, int cog, Wheel wheel) {
-		this.chainring = chainring;
-		this.cog = cog;
-		this.wheel = wheel;
+	public Gear(HashMap<String, Object> args) {
+		if(args.containsKey("chainring")) {
+			this.chainring = (int) args.get("chainring");	
+		}
+		if(args.containsKey("cog")) {
+			this.cog = (int) args.get("cog");	
+		}
+		if(args.containsKey("wheel")) {	
+			this.wheel = (Wheel) args.get("wheel");
+		}
 	}
+
+	// public Gear(int chainring, int cog, Wheel wheel) {
+	// 	this.chainring = chainring;
+	// 	this.cog = cog;
+	// 	this.wheel = wheel;
+	// }
 
 	public double getRatio() {
 		return (1.0 * getChainring() / getCog());
