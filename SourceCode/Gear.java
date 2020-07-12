@@ -1,16 +1,22 @@
 package learnOOD;
 
-public class Gear {
+class Gear {
 	private int chainring;
 	private int cog;
+	private Wheel wheel;
 
-	public Gear(int chainring, int cog) {
+	public Gear(int chainring, int cog, Wheel wheel) {
 		this.chainring = chainring;
 		this.cog = cog;
+		this.wheel = wheel;
 	}
 
 	public double getRatio() {
 		return (1.0 * getChainring() / getCog());
+	}
+
+	public double getGearInches() {
+		return getRatio() * wheel.getDiameter();
 	}
 
 	public int getCog() {
@@ -19,7 +25,11 @@ public class Gear {
 
 	public int getChainring() {
 		return chainring;
-	} 
+	}
+
+	public Wheel getWheel() {
+		return wheel;
+	}
 }
 
 // class Test {
