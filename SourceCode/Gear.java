@@ -15,8 +15,12 @@ class Gear {
 		return (1.0 * getChainring() / getCog());
 	}
 
+	public getDiameter() {
+		return wheel.getDiameter();
+	}
+
 	public double getGearInches() {
-		return getRatio() * wheel.getDiameter();
+		return getRatio() * getDiameter();
 	}
 
 	public int getCog() {
